@@ -1,0 +1,409 @@
+
+
+
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+  
+<div ng-controller="secondCtrl" >
+
+
+    <div id="pres" >
+        <img src="images/photoM.png" id="photo">
+
+        <p id="preface" >Bonjour Monsieur , Madame  {{nom}} </p> <p>, je me présente Sébastien jalliot, c'est moi sur la droite. J'ai 25 ans , j'aime la vie et je suis passioné. 
+        <br>
+        Mes expériences de vies sont diverses, évoluer dans des univers différents m'a permis de dévelloper une bonne capacité d'adaptation.<br>
+        Je suis déterminé
+         </p>
+    </div>
+
+        <div  id="frise" ng-controller="friseCtrl">
+            <frise id="Tfrise">
+          <!--  <img src="images/fleche.png" id="fleche"> -->
+                <expander id="expension" class="expander" expander-title="expander.title" ng-repeat="expander in expanders">
+                   <p>{{expander.date}}<br> {{expander.text}}<br></p><p>{{expander.date2}} <br> {{expander.text2}} </p>
+                </expander>
+            <frise>
+        </div>
+
+
+    <button ng-click=affiche() id="afficheJ">voir jeux</button>
+
+    <div id="LigneJeux" ng-if="voir===1" >
+    <div  ng-controller="SudoCtrl" ng-model="nb" >
+
+    <table id="sudoku">
+      <caption>Petit Sudoku</caption>
+        <tr>
+            <td><input  ng-model="nb"  maxlength="1"></td>
+            <td>4</td>
+            <td id="SuMi">1</td>
+            <td><input  ng-model="nb1" maxlength="1" ></td>
+        </tr>
+
+        <tr>
+            <td>1</td>
+            <td><input  ng-model="nb2" maxlength="1"></td>
+            <td id="SuMi">3</td>
+            <td><input  ng-model="nb3" maxlength="1"></td>
+        </tr>
+
+        <tr id="SuMo">
+            <td> <input  ng-model="nb4" maxlength="1"></td>
+            <td><input  ng-model="nb5" maxlength="1"> </td>
+            <td id="SuMi">2</td>
+            <td><input  ng-model="nb6" maxlength="1"></td>
+        </tr>
+
+
+        <tr>
+            <td>2</td>
+            <td>1</td>
+            <td id="SuMi">4</td>
+            <td><input  ng-model="nb7" maxlength="1"> </td>
+        </tr>
+
+    </table>
+
+
+     <div id="oui">
+        <h5>Vérification Horizontale :<h5>
+       <div ng-if="nb==3&&nb1==2" style="color:green"> Première ligne completée </div>
+       <div ng-if="nb2==2&&nb3==4" style="color:green">  Deuxième ligne completée </div>
+
+       <div ng-if="nb4==4&&nb5==3&&nb6==1" style="color:green"> 
+          Troisiéme ligne completée   </div>
+           
+        <div ng-if="nb7==3" style="color:green"> Quatrième ligne completée  </div>
+        <div ng-if="nb==3&&nb1==2&&nb2==2&&nb3==4&&nb4==4&&nb5==3&&nb6==1&&nb7==3"> Le Sudoku est complet!</div>
+    </div>
+
+    </div>
+
+
+
+
+ <div   ng-controller="motsCtrl" >
+
+      
+    <div ng-if="vu===0">
+
+            <table id="Mcc">
+                <caption>mots croisés</caption>
+
+             <tr>
+             <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>4</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>5</td>
+                <td></td>
+                <td></td>   
+            </tr>
+
+           
+
+             <tr>
+             <td></td>
+                <td>3</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><input id="MC" ng-model="inspire[0] " maxlength="1"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><input id="MC" ng-model="precis[0]" maxlength="1"></td>
+                <td></td>
+                <td></td>   
+            </tr>
+
+            <tr>
+            <td></td>
+                <td><input id="MC" ng-model="engage[0]" maxlength="1"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><input id="MC" ng-model="inspire[1]" maxlength="1"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><input id="MC" ng-model="precis[1]" maxlength="1"></td>
+                <td></td>
+                <td></td>   
+            </tr>
+
+             <tr>
+             <td></td>
+                <td><input id="MC" ng-model="engage[1]" maxlength="1"></td>
+                <td></td>
+                <td></td>
+                <td>2</td>
+                <td><input id="MC" ng-model="systeme[0]" maxlength="1"></td>
+                <td><input id="MC" ng-model="systeme[1]" maxlength="1"></td>
+                <td><input id="MC" ng-model="systeme[2]" maxlength="1"></td>
+                <td><input id="MC" ng-model="systeme[3]" maxlength="1"></td>
+                <td><input id="MC" ng-model="systeme[4]" maxlength="1"></td>
+                <td><input id="MC" ng-model="systeme[5]" maxlength="1"></td>
+                <td><input id="MC" ng-model="systeme[6]" maxlength="1"></td>   
+            </tr>
+
+             <tr>
+             <td></td>
+                <td><input id="MC" ng-model="engage[2]" maxlength="1"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><input id="MC" ng-model="inspire[3]" maxlength="1"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><input id="MC" ng-model="precis[3]" maxlength="1"></td>
+                <td></td>
+                <td></td>  
+            </tr>
+
+             <tr>
+                <td>1</td>
+                <td><input id="MC" ng-model="appli[0]" maxlength="1"></td>
+                <td><input id="MC" ng-model="appli[1]" maxlength="1"></td>
+                <td><input id="MC" ng-model="appli[2]" maxlength="1"></td>
+                <td><input id="MC" ng-model="appli[3]" maxlength="1"></td>
+                <td><input id="MC" ng-model="appli[4]" maxlength="1"></td>
+                <td><input id="MC" ng-model="appli[5]" maxlength="1"></td>
+                <td><input id="MC" ng-model="appli[6]" maxlength="1"></td>
+                <td><input id="MC" ng-model="appli[7]" maxlength="1"></td>
+                <td><input id="MC" ng-model="appli[8]" maxlength="1"></td>
+                <td><input id="MC" ng-model="appli[9]" maxlength="1"></td>
+                <td><input id="MC" ng-model="appli[10]" maxlength="1"></td>   
+            </tr>
+
+             <tr>
+             <td></td>
+                <td><input id="MC" ng-model="engage[4]" maxlength="1"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><input id="MC" ng-model="inspire[5]" maxlength="1"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><input id="MC" ng-model="precis[5]" maxlength="1"></td>
+                <td></td>
+                <td></td>  
+            </tr>
+
+             <tr>
+             <td></td>
+                <td><input id="MC" ng-model="engage[5]" maxlength="1"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><input id="MC" ng-model="inspire[6]" maxlength="1"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>   
+            </tr>
+            </table>
+
+
+        <div id="enoncMo">
+            <ul>
+                <li>1.Programme destiner à aider l'utilisteur d'un ordinateur pour le traitement d'une tâche</li>
+                <li>2.Ensemble organisé que l'on utilise en informatique , philosophie et mathématiques </li>
+                <li>3.Assumer ses valeurs / donner son maximun dans un projet</li>
+                <li>4.Propice à la création / fait partis de la respiration</li>
+                <li>5.Ne laisse pas place a l'approximation / nettement déterminé / peut se dire d'une machine</li>
+            </ul>
+        </div>
+
+
+
+        <div id=button>
+            <button ng-click=aide()>Aide</button>
+
+            <button ng-click=verif() >Verification </button>
+
+            <button ng-click=changer()> Changer de mots croisés </button>
+            
+            <div ng-if="appliVu===11"> On dévellope une application</div>
+            <div ng-if="inspVu===7"> On s'inspire de ce qui nous entoure</div>
+            <div ng-if="sysVu===7"> Un système peut être une bonne base</div>
+            <div ng-if="engaVu===6"> On s'engage , on s'investis, on évolue!</div>
+            <div ng-if="preVu===6"> La précision aide dans le dévelloppement </div>
+            <div ng-if="feli===37"> Félicitations, les mots sont croisés!</div>
+
+        </div>
+
+
+    </div>
+
+
+        
+    <div ng-if="vu===1" ng-controller="motsCtrll">
+
+        <table id="Mcc">
+
+             <caption>mots croisés</caption>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td>1</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>3</td>
+                <td></td>
+            </tr>
+
+
+
+            <tr>
+            <td></td>
+                <td></td>
+                <td><input id="MC" ng-model="a" maxlength="1"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><input id="MC"  ng-model="b" maxlength="1"></td>
+                <td></td>
+            </tr>
+
+           <tr>
+           <td></td>
+                <td></td>
+                <td><input id="MC"  ng-model="a1" maxlength="1"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>5</td>
+                <td><input id="MC"  ng-model="b1" maxlength="1"></td>
+                <td></td>
+            </tr>
+
+              <tr>
+              <td></td>
+                <td></td>
+                <td><input id="MC"  ng-model="a2" maxlength="1"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><input id="MC"  ng-model="c1" maxlength="1"></td>
+                <td><input id="MC"  ng-model="b2" maxlength="1"></td>
+                <td></td>
+            </tr>
+
+
+            <tr>
+            <td></td>
+                <td></td>
+                <td><input id="MC"  ng-model="a3" maxlength="1"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><input id="MC"  ng-model="c2" maxlength="1"></td>
+                <td><input id="MC"  ng-model="b3" maxlength="1"></td>
+                <td></td>
+                
+            </tr>
+
+
+
+            <tr>
+            <td></td>
+                <td></td>
+                <td><input id="MC"  ng-model="a4" maxlength="1"></td>
+                <td>2</td>
+                <td></td>
+                <td></td>
+                <td><input id="MC"  ng-model="c3" maxlength="1"></td>  
+                <td><input  id="MC"  ng-model="b4" maxlength="1" ></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>4</td>
+                <td><input id="MC"  ng-model="h1"  maxlength="1"></td>
+                <td><input   id="MC" ng-model="h2" maxlength="1"></td>
+                <td><input id="MC"  ng-model="h3"  maxlength="1"></td>
+                <td><input id="MC"  ng-model="h4" maxlength="1"></td>
+                <td><input  id="MC" ng-model="h5" maxlength="1"></td>
+                <td><input id="MC"  ng-model="h6" maxlength="1"></td>
+                <td><input id="MC"  ng-model="h7" maxlength="1"></td>
+                <td><input id="MC"  ng-model="h8" maxlength="1"></td>
+            </tr>
+
+             <tr>
+             <td></td>
+                <td></td>
+                <td></td>
+                <td><input id="MC"  ng-model="d1" maxlength="1"></td>
+                <td></td>
+                <td></td>
+                <td><input  id="MC"  ng-model="c5" maxlength="1"></td>
+                <td><input id="MC"  ng-model="b6" maxlength="1"></td>
+                <td></td>
+            </tr>
+
+            <tr>
+            <td></td>
+                <td></td>
+                <td></td>
+                <td><input  id="MC"  ng-model="d2" maxlength="1"></td>
+                <td></td>
+                <td></td>
+                <td><input id="MC"  ng-model="c6" maxlength="1"></td>
+                <td></td>
+            </tr>        
+        </table> 
+
+            <div id="enoncMo">
+                <ul>
+                    <li>1.Plante herbacé</li>
+                    <li>2.Réveil celui qui dort / on le pousse</li>
+                    <li>3.Synonyme d'accumuler</li>
+                    <li>4.Pièces comptables</li>
+                    <li>5.Peut définir une densité, un poids, une sensation, une application</li>
+                </ul>
+            </div>
+
+            <div id=buttonn>
+                <button ng-click=aide()>Aide</button>
+
+                <button ng-click=veriff() >Verification </button>
+
+                <button ng-click=changer()> Changer de mots croisés </button>
+
+                <div ng-if="fac===1"> Une facture vaut mieux que des </div>
+                <div ng-if="cri===1">  Le cri retentit </div>
+                <div ng-if="reseda===1"> La reseda pousse </div>
+                <div ng-if="amas===1"> Amasser n'est pas collectionner </div>
+                <div ng-if="lour===1">On pèse l'eau lourde?</div>
+
+                <p>{{bravo}}</p>
+            </div>
+
+        
+    </div>
+
+   
+</div>
+
+
+
+
+</div>
+

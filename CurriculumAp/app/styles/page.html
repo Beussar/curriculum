@@ -1,0 +1,89 @@
+
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+  
+
+
+<div id="pres">
+<img src="images/photoM.png" id="photo">
+<p id="preface">Bonjour Monsieur , Madame {{nom}} , je me présente Sébastien jalliot, c'est moi sur la gauche. J'ai 25 ans , j'aime la vie et je suis passioné. <br>
+Mes expériences de vies sont diverses, évoluer dans des univers différents m'a permis de dévelloper une bonne capacité d'adaptation.<br>
+Je suis déterminé
+ </p>
+</div>
+
+    <div  id="frise" ng-controller="MenuCtr">
+   
+
+   <!--   <img id="ImgFrise" src="images/Frise.png">  -->
+        <accordion id="accordeon">
+       <img src="images/fleche.png" id="fleche">
+            <expander id="expension" class="expander" expander-title="expander.title" ng-repeat="expander in expanders">
+               <p> {{expander.text}}</p>
+            </expander>
+        </accordion>
+    </div>
+
+
+
+<div id="sudoku" ng-controller="SudoCtrl" ng-model="nb">
+
+<table>
+  <caption>Petit Sudoku</caption>
+    <tr>
+        <td><input  ng-model="nb" ></td>
+        <td>4</td>
+        <td>1</td>
+        <td><input  ng-model="nb1" ></td>
+    </tr>
+
+    <tr>
+        <td>1</td>
+        <td><input  ng-model="nb2" ></td>
+        <td>3</td>
+        <td><input  ng-model="nb3" ></td>
+    </tr>
+
+    <tr>
+        <td> <input  ng-model="nb4" ></td>
+        <td><input  ng-model="nb5" > </td>
+        <td>2</td>
+        <td><input  ng-model="nb6" ></td>
+    </tr>
+
+
+    <tr>
+        <td>2</td>
+        <td>1</td>
+        <td>4</td>
+        <td><input  ng-model="nb7" > </td>
+    </tr>
+
+</table>
+
+
+ 
+   <div ng-if="nb==3" style="color:green"><span ng-if="nb1==2"> <p>Ligne une Vrai</p>  </div>
+   <div ng-if="nb2==2" style="color:green"> <span ng-if="nb3==4" style="color:green"> <p>Ligne deux Vrai</p> </span>  </div>
+
+   <div ng-if="nb4==4" style="color:green"> 
+    <span ng-if="nb5==3" style="color:green">  <span ng-if="nb6==1" style="color:green"><p>Ligne trois Vrai</p> </span> </span>  </div>
+    
+   
+      <div ng-if="nb7==3" style="color:green"> <p>Ligne quatre Vrai</p>  </div>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
